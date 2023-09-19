@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 
 public class ValidacaoPeriodicidadeReajuste implements ValidacaoReajuste{
     public void validar(Funcionario funcionario, BigDecimal aumento){
-        LocalDate dataUltimoReajuste = funcionario.getDataUltimoReajuste();
+        LocalDate dataUltimoReajuste = funcionario.getDadosPessoais().getDataUltimoReajuste();
         LocalDate dataAtual = LocalDate.now();
         long mesesDesdeUltimoReajuste = ChronoUnit.MONTHS.between(dataUltimoReajuste, dataAtual);
         if(mesesDesdeUltimoReajuste < 6) {
