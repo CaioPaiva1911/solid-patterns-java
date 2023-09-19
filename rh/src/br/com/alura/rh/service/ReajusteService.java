@@ -15,10 +15,10 @@ public class ReajusteService {
 
     //Single Responsibility Principle (SRP)
     public void reajustarSalarioDoFuncionario(Funcionario funcionario, BigDecimal aumento) {
-        //Extract class refactor
+        //Dependency Inversion Principle
         this.validacoes.forEach(v -> v.validar(funcionario, aumento));
 
-        BigDecimal salarioReajustado = funcionario.getDadosPessoais().getSalario().add(aumento);
+        BigDecimal salarioReajustado = funcionario.getSalario().add(aumento);
         funcionario.atualizarSalario(salarioReajustado);
     }
 }
